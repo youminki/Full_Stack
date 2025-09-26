@@ -2,6 +2,8 @@
 // console.log(30);
 // console.log(20);
 
+const { argv } = require("process");
+
 // console.log(typeof 1);
 // console.log(typeof 1.1);
 // console.log(typeof 3.14);
@@ -218,11 +220,6 @@ if (hasIDCard2 || hasDrivingCard) {
 }
 
 // =====================================
-for (let i = 0; i < 9; i++) {
-  console.log(i);
-}
-
-// =====================================
 
 // 1. 기온에 따라 외출 복장 추천
 // 30도 이상 : 반팔
@@ -273,3 +270,101 @@ if (finger == true || eye == true) {
 } else {
   console.log("확인되지 않은 생체 인증 정보입니다.");
 }
+
+// =====================================
+
+// for문 : 반복 횟수가 정해짐
+for (let i = 0; i < 9; i++) {
+  console.log(i);
+}
+
+// while문 : 조건이 정해짐
+let number = 100;
+
+while (number > 0) {
+  console.log(number);
+  number -= 20;
+}
+
+// =====================================
+// 1. for문
+// 사과, 오렌지, 바나나, 딸기가 담겨있는 바구니
+// 각 과일을 한번씩 출력
+
+let basket = ["사과", "오렌지", "바나나", "딸기"];
+
+for (let i = 0; i < 4; i++) {
+  console.log(basket[i]);
+}
+
+// 2. while문
+// 저금 (현재 0원)
+// 일일 저축 금액은 3원
+// 누적 저축 금액이 158원을 넘는데 걸리는 일수는?
+
+let day = 0;
+let money = 0;
+let res = 3;
+while (money < 158) {
+  money += res;
+  day++;
+}
+console.log(day);
+
+//break 추가
+let coin = 0;
+let count = 0;
+while (true) {
+  coin++;
+  count++;
+  if (coin > 150) {
+    break;
+  }
+}
+console.log(count);
+
+// 누적합
+// 1,2,3,4,5,6,7,8 ...
+// 1+2+3+4+5+6+7+8...
+// 누적 합 1000을 넘으면 마지막 더한 값 구하기
+
+let result = 0;
+let i = 0;
+
+while (result <= 1000) {
+  i++;
+  result += i;
+}
+console.log(i);
+
+// 1반의 평균 점수 구하기
+let average = 0;
+let sum = 0;
+let array = [90, 100, 20, 28, 30, 88, 72, 80];
+
+for (let i = 0; i < array.length; i++) {
+  sum += array[i];
+}
+average = sum / array.length;
+console.log(average);
+
+// 짝수, 홀수 판별
+let array = [1, 1, 2, 3, 5, 8, 13, 20, 28, 32];
+for (let i = 0; i < array.length; i++) {
+  if (array[i] % 2 == 0) {
+    console.log(array[i] + " = 짝수입니다.");
+  } else {
+    console.log(array[i] + " = 홀수입니다.");
+  }
+}
+
+// 배열 내 최댓값 찾기
+let array = [1, 8, 20, 13, 5];
+let res = array[0];
+
+for (let i = 0; i < array.length; i++) {
+  if (array[i] > res) {
+    res = array[i];
+  }
+}
+console.log("배열의 최댓값: " + res);
