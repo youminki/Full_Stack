@@ -1,0 +1,42 @@
+openapi: 3.1.0
+info:
+  description: library_app API
+  title: library_app API
+  version: 1.0.0
+servers:
+- url: https://library_app
+paths:
+  /add:
+    get:
+      operationId: addTwoNumbers
+      parameters:
+      - explode: true
+        in: query
+        name: number1
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: number2
+        required: true
+        schema:
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                format: int32
+                type: integer
+          description: OK
+      summary: GET add
+      x-accepts:
+      - '*/*'
+components:
+  schemas: {}
+
