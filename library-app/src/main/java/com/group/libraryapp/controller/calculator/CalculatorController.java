@@ -1,7 +1,7 @@
 package com.group.libraryapp.controller.calculator;
 
-import com.group.libraryapp.dto.calculator.requst.CalculatorAddRequest;
-import com.group.libraryapp.dto.calculator.requst.CalculatorMultiplyRequest;
+import com.group.libraryapp.dto.calculator.reqeust.CalculatorAddRequest;
+import com.group.libraryapp.dto.calculator.reqeust.CalculatorMultiplyRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

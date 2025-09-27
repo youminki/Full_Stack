@@ -1,4 +1,4 @@
-package com.group.libraryapp.dto.calculator.requst;
+package com.group.libraryapp.dto.calculator.reqeust;
 
 public class CalculatorMultiplyRequest {
     private final int number1;
