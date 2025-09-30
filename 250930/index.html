@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 선택 및 조작 실습</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #007bff;
+        }
+
+        h2 {
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #333;
+        }
+
+        .highlight {
+            border: 2px solid orange;
+            font-weight: bold;
+            padding: 10px;
+            display: inline-block;
+        }
+        .hidden {
+            display: none !important;
+        }
+        
+        .list-item {
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            list-style: none;
+        }
+        button { 
+            margin: 6px 6px 6px 0; 
+            padding: 8px 12px; 
+            border-radius: 6px; 
+            border: 1px solid #000000; 
+            font-weight: 600;
+            font-family: Arial, sans-serif;        
+            background: rgb(254, 214, 255); 
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: rgb(180, 75, 182);
+            color: white;
+        }
+
+        #target-list {
+            padding: 0;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">
+        <h2>제목과 단락 변경</h2>
+        <h1 id="main-title">안녕하세요! 제목입니다.</h1>
+        <p class="description">여기는 바뀌지 않는 기본 텍스트입니다.</p>
+        <button id="btn-change-title">제목 변경</button>
+        <button id="btn-reset-title">제목 리셋</button>
+    </div>
+
+    <div class="section">
+        <h2>목록 항목 스타일 일괄 변경</h2>
+        <ul id="item-list">
+            <li class="list-item">항목 1</li>
+            <li class="list-item">항목 2</li>
+            <li class="list-item">항목 3</li>
+        </ul>
+        <button id="btn-style-list">스타일 적용</button>
+        <button id="btn-reset-list">스타일 리셋</button>
+    </div>
+    
+    <div class="outerDiv">
+        <h2>클래스와 속성 변경</h2>
+        <div id="box">여기에 스타일이 적용됩니다.</div>
+        <img id="status-icon" src="placeholder_original.png" alt="상태 아이콘" width="64" height="64">
+        <button id="btn-toggle-highlight">하이라이트 토글</button>
+        <button id="btn-change-image">아이콘 변경</button>
+        <p style="font-size: 12px; margin-top: 10px;">(이미지 파일은 없어도 콘솔과 Elements 탭에서 변경 확인 가능)</p>
+    </div>
+
+    <div class="section">
+        <h2>클래스와 속성 변경</h2>
+        <div id="box">여기에 스타일이 적용됩니다.</div>
+        <img id="status-icon" src="placeholder_original.png" alt="상태 아이콘">
+        <p style="font-size: 12px; margin-top: 10px;">(이미지 파일은 없어도 콘솔과 Elements 탭에서 변경 확인 가능)</p>
+    </div>
+
+    <div class="section">
+        <h2>새로운 요소 동적 생성</h2>
+        <div id="container" style="border: 1px dashed #007bff; padding: 15px; min-height: 50px;">
+            </div>
+    </div>
+
+    <div class="section">
+        <h2>목록 동적 생성 및 삭제</h2>
+        <ul id="target-list">
+            <li class="removable list-item">삭제 대상 1</li>
+            <li class="removable list-item">삭제 대상 2</li>
+        </ul>
+        <div id="new-item-area"></div>
+    </div>
+
+    <script src="subject.js"></script>
+
+</body>
+</html>
