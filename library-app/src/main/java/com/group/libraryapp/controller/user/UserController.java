@@ -42,7 +42,7 @@ public class UserController {
 
     @PutMapping("/user")
     public void updateUser(@RequestBody UserUpdateRequest request) {
-        String sql = "UPDATE user SET name = ? WEHRE id = ?";
+        String sql = "UPDATE user SET name = ? WHERE id = ?";
         jdbcTemplate.update(sql, request.getName(), request.getId());
     }
 
@@ -51,5 +51,9 @@ public class UserController {
         String sql = "DELETE FROM user WHERE name = ?";
         jdbcTemplate.update(sql, name);
     }
-
+//
+//    @GetMapping("/user/error-test")
+//    public void errorTest(){
+//        throw new IllegalStateException("error test");
+//    }
 }
