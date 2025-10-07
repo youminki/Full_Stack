@@ -3,9 +3,11 @@ package com.group.libraryapp.repository.user;
 import com.group.libraryapp.domain.user.User;
 import com.group.libraryapp.dto.user.response.UserResponse;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class UserRepository {
     private JdbcTemplate jdbcTemplate;
 
