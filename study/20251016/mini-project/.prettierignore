@@ -1,0 +1,17 @@
+node_modules
+build
+dist
+public
+/*.min.js
+*.lock
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.git
+.gitignore
+*.log
+coverage
+src/**/*.png
+src/**/*.jpg
+src/**/*.jpeg
+src/**/*.svg

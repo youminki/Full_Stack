@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 보기 - METALLIC FORUM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="board-container view-container">
+        <header class="board-header">
+            <h1 id="post-title"></h1>
+        </header>
+
+        <main class="board-main">
+            <div class="post-info">
+                <span class="info-item"><strong>작성자:</strong> <span id="post-author"></span></span>
+                <span class="info-item"><strong>작성일:</strong> <span id="post-date"></span></span>
+                <span class="info-item"><strong>조회수:</strong> <span id="post-views"></span></span>
+            </div>
+            <div id="post-content" class="post-content">
+                <!-- 게시물 내용이 여기에 표시됩니다. -->
+            </div>
+        </main>
+
+        <footer class="board-footer">
+            <div class="form-buttons">
+                <a href="index.html" class="btn-cancel">목록으로</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

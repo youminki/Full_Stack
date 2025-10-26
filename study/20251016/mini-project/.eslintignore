@@ -1,0 +1,9 @@
+node_modules
+build
+dist
+.husky
+.git
+public
+*.min.js
+*.log
+coverage
