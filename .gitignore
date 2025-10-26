@@ -1,0 +1,41 @@
+# Dependency directories
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Coverage and test output
+coverage/
+.nyc_output/
+jest-junit.xml
+
+# TypeScript
+*.tsbuildinfo
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Misc
+tmp/
+temp/
+.cache/
+
+# Prisma local DB (if used)
+prisma/dev.db
