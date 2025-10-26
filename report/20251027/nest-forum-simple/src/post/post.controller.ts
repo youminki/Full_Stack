@@ -63,9 +63,18 @@ export class PostController {
     };
   }
 
-  @Get(":id")
-  findOne(@Param("id") id: string) {
-    return this.service.findOne(id);
+  // 웹 UI: 게시물 작성 폼 (경로 충돌 방지를 위해 /posts/web/create 사용)
+  @Get("web/create")
+  @Render("posts/new")
+  renderNew() {
+    return {};
+  }
+
+  // 웹 UI: 게시물 작성 처리 (form POST)
+  @HttpPost("web/create")
+  async webCreate(@Body() body: Partial<CreatePostDto>, @Res() res: Response) {
+    const created = await this.service.create(body as CreatePostDto);
+    return res.redirect(`/posts/web/${created._id}`);
   }
 
   // 웹 UI: 게시물 상세(Handlebars)
@@ -92,6 +101,11 @@ export class PostController {
   async webDelete(@Param("id") id: string, @Res() res: Response) {
     await this.service.remove(id);
     return res.redirect(`/posts/web`);
+  }
+
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return this.service.findOne(id);
   }
 
   @Patch(":id")

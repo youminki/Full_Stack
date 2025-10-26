@@ -1,0 +1,32 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>게시물 작성</title>
+  </head>
+  <body>
+    <a href="/posts/web">← 목록으로</a>
+    <h1>게시물 작성</h1>
+  <form method="post" action="/posts/web/create">
+      <div>
+        <label>제목
+          <input name="title" required />
+        </label>
+      </div>
+      <div>
+        <label>작성자
+          <input name="author" />
+        </label>
+      </div>
+      <div>
+        <label>내용
+          <textarea name="content" rows="8"></textarea>
+        </label>
+      </div>
+      <div>
+        <button type="submit">작성</button>
+        <a href="/posts/web">취소</a>
+      </div>
+    </form>
+  </body>
+</html>
