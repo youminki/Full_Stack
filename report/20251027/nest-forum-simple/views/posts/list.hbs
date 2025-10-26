@@ -1,0 +1,18 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>게시물 목록</title>
+  </head>
+  <body>
+    <h1>게시물 목록</h1>
+    <ul>
+      {{#each posts}}
+        <li>
+          <a href="/posts/web/{{this._id}}">{{this.title}}</a>
+          <div>작성자: {{this.author}}</div>
+        </li>
+      {{/each}}
+    </ul>
+  </body>
+</html>

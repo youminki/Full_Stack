@@ -1,9 +1,9 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
-import { Post, PostDocument } from './schemas/post.schema';
-import { CreatePostDto } from './dto/create-post.dto';
-import { UpdatePostDto } from './dto/update-post.dto';
+import { Injectable, NotFoundException } from "@nestjs/common";
+import { InjectModel } from "@nestjs/mongoose";
+import { Model, isValidObjectId } from "mongoose";
+import { Post, PostDocument } from "./schemas/post.schema";
+import { CreatePostDto } from "./dto/create-post.dto";
+import { UpdatePostDto } from "./dto/update-post.dto";
 
 @Injectable()
 export class PostService {
@@ -19,8 +19,10 @@ export class PostService {
   }
 
   async findOne(id: string) {
+    // 유효한 ObjectId인지 검사하여 CastError를 방지
+    if (!isValidObjectId(id)) throw new NotFoundException("Post not found");
     const item = await this.postModel.findById(id).exec();
-    if (!item) throw new NotFoundException('Post not found');
+    if (!item) throw new NotFoundException("Post not found");
     return item;
   }
 
@@ -28,13 +30,13 @@ export class PostService {
     const updated = await this.postModel
       .findByIdAndUpdate(id, updateDto, { new: true })
       .exec();
-    if (!updated) throw new NotFoundException('Post not found');
+    if (!updated) throw new NotFoundException("Post not found");
     return updated;
   }
 
   async remove(id: string) {
     const deleted = await this.postModel.findByIdAndDelete(id).exec();
-    if (!deleted) throw new NotFoundException('Post not found');
+    if (!deleted) throw new NotFoundException("Post not found");
     return { deleted: true };
   }
 }
