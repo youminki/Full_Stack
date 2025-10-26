@@ -11,5 +11,34 @@
     <div>
       {{{post.content}}}
     </div>
+    <hr />
+    <h2>수정</h2>
+    <form method="post" action="/posts/web/{{post._id}}/update">
+      <div>
+        <label>제목: <input name="title" value="{{post.title}}" /></label>
+      </div>
+      <div>
+        <label>작성자: <input name="author" value="{{post.author}}" /></label>
+      </div>
+      <div>
+        <label>내용:<br />
+          <textarea
+            name="content"
+            rows="6"
+            cols="60"
+          >{{post.content}}</textarea>
+        </label>
+      </div>
+      <button type="submit">저장</button>
+    </form>
+
+    <h2>삭제</h2>
+    <form
+      method="post"
+      action="/posts/web/{{post._id}}/delete"
+      onsubmit="return confirm('삭제하시겠습니까?');"
+    >
+      <button type="submit">삭제</button>
+    </form>
   </body>
 </html>

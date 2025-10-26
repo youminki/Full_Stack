@@ -6,6 +6,16 @@
   </head>
   <body>
     <h1>게시물 목록</h1>
+    <form method="get" action="/posts/web">
+      <input type="text" name="q" placeholder="검색어" value="{{q}}" />
+      <select name="limit">
+        <option value="5">5</option>
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+      </select>
+      <button type="submit">검색</button>
+    </form>
+
     <ul>
       {{#each posts}}
         <li>
@@ -14,5 +24,14 @@
         </li>
       {{/each}}
     </ul>
+
+    <div>
+      {{#if prevExists}}
+        <a href="{{prevUrl}}">이전</a>
+      {{/if}}
+      {{#if nextExists}}
+        <a href="{{nextUrl}}">다음</a>
+      {{/if}}
+    </div>
   </body>
 </html>
