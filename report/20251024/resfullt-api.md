@@ -106,3 +106,26 @@ GET /api/posts/1 HTTP/1.1
 Host: example.com
 Accept: application/json
 ```
+
+## 5. REST API 중심 규칙
+
+### **URI는 정보의 자원을 표현**
+
+**좋지 않은 사용 예시**
+
+```java
+//delete는 Verb에 속한다.
+GET /members/delete/1
+```
+
+**좋은 사용 예시**
+
+```java
+DELETE /member/1
+```
+
+**하지만, 컨트롤러 자원을 의미하는 URL 예외적으로 동사를 허용함.**
+
+```java
+http://api.test.com/posts/duplicating (X)
+http://api.test.com/posts/duplicate (O)
